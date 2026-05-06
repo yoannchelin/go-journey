@@ -1,16 +1,12 @@
 package main
 
 import (
-	"example/user/hello/warmup2"
+	"example/user/hello/exo"
 	"fmt"
 )
 
 func main() {
-	even := warmup2.IsEven(3)
-	if even == false {
-		fmt.Printf("c'est impair")
-	}
-	if even == true {
-		fmt.Printf("c'est pair")
-	}
+	fmt.Print(exo.ReverseString(""))
+	fmt.Print(exo.Min([]int{3, 1, 4, 1, 5, 9, 2, 6}))
+	fmt.Print(exo.CountVowels("je sais pas quoi dire mon vierrrr"))
 }
