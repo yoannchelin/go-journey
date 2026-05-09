@@ -1,13 +1,13 @@
 package exo
 
+func Filter(nums []int, pred func(int) bool) []int {
+	result := []int{}
 
-func Filter(nums []int, pred func (int) bool) []int {
-
-	res := []int{}
-	for _, i := range nums {
-		if pred(i) {
-			res = append(res, i)
+	for _, v := range nums[:] {
+		if pred(v) {
+			result = append(result, v)
 		}
 	}
-	return res
+
+	return result
 }

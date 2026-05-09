@@ -10,17 +10,17 @@ func TestReverseString(t *testing.T) {
 		in string
 		want string
 	} {
-		{"reverse string is ", "a", "a"},
-		{"reverse string is ", "", ""},
-		{"reverse string is ", "hello", "olleh"},
-		{"reverse string is ", "héllo", "olléh"},
+		{"la string reverse est", "abc", "cba"},
+	  	{"la string reverse est", "", ""},
+	  	{"la string reverse est", "zebi", "ibez"},
 	}
-	for _, tc := range tests {
-		t.Run(tc.name, func(t *testing.T)  {
-			got := ReverseString(tc.in)
+
+	  for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			got := ReverseRunes(tc.in)
 			if got != tc.want {
-				t.Errorf("Reverse(%q) = %q, want %q", tc.in, got, tc.want)
+				t.Errorf("ReverseRunes(%q) = %q, want %q", tc.in, got, tc.want)
 			}
 		})
-	}
+	  }
 }

@@ -2,12 +2,12 @@ package exo
 
 import "strings"
 
-
 func WordCount(s string) map[string]int {
-    result := make(map[string]int)
+    res := make(map[string]int)
     s = strings.ToLower(s)
+
     for _, word := range strings.Fields(s) {
-        result[word]++
+        res[word]++
     }
-    return result
-}
+    return res
+} 
