@@ -1,25 +1,24 @@
 package exo
 
-import (
-	"strings"
-)
+import "strings"
+
 
 func IsValidEmail(s string) bool {
 	if s == "" {
 		return false
 	}
+	if strings.Contains(s, " ") {
+		return false
+	}
+	atIdx := strings.Index(s, "@")
+	if atIdx == 0 || atIdx == len(s)-1 {
+		return false
+	}
 	if strings.Count(s, "@") != 1 {
 		return false
 	}
-	adx := strings.Index(s, "@")
-	if adx == 0 || adx == len(s)-1 {
-		return false
-	}
-	domain := s[adx+1:]
-    if !strings.Contains(domain, ".") {
-        return false
-    }
-	if strings.Contains(s, " ") {
+	domain := s[atIdx+1:]
+	if domain[0] == '.' || !strings.Contains(domain, ".") {
 		return false
 	}
 

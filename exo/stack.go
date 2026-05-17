@@ -2,11 +2,11 @@ package exo
 
 import "errors"
 
-var ErrEmptyStack = errors.New("stack is empty")
-
 type Stack[T any] struct {
     items []T
 }
+
+var ErrEmptyStack = errors.New("Stack vide")
 
 func NewStack[T any]() *Stack[T] {
     return &Stack[T]{items: []T{}}
@@ -18,7 +18,7 @@ func (s *Stack[T]) Push(item T) {
 
 func (s *Stack[T]) Pop() (T, error) {
     var zero T
-    if len(s.items) == 0 {
+    if len(s.items ) == 0 {
         return zero, ErrEmptyStack
     }
     n := len(s.items) - 1
@@ -28,11 +28,13 @@ func (s *Stack[T]) Pop() (T, error) {
 }
 
 func (s *Stack[T]) Peek() (T, error) {
-    var zero T
+    var zero T 
     if len(s.items) == 0 {
         return zero, ErrEmptyStack
     }
-    return s.items[len(s.items)-1], nil
+    n := len(s.items) - 1
+    item := s.items[n]
+    return item, nil
 }
 
 func (s *Stack[T]) Size() int {
@@ -40,5 +42,5 @@ func (s *Stack[T]) Size() int {
 }
 
 func (s *Stack[T]) IsEmpty() bool {
-    return len(s.items) == 0
+   return len(s.items) == 0
 }
